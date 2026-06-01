@@ -95,6 +95,7 @@ SIMPLE_JWT = {
 }
 
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:5173')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # à remplacer en prod
 
 
