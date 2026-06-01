@@ -8,7 +8,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes, force_str
+from django.utils.encoding import force_bytes
 
 from .serializers import SignupSerializer, UserSerializer
 
@@ -53,7 +53,7 @@ def password_reset_confirm(request):
     token = request.data.get('token')
     password = request.data.get('password')
     try:
-        user_id = force_str(urlsafe_base64_decode(uid))
+        user_id = urlsafe_base64_decode(uid).decode('ascii') 
         user = User.objects.get(pk=user_id)
         if not default_token_generator.check_token(user, token):
             return Response({'detail': 'Token invalide ou expiré.'}, status=status.HTTP_400_BAD_REQUEST)
