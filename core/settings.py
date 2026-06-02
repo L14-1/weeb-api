@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'articles_app',
     'auth_app',
+    'contact'
 ]
 
 MIDDLEWARE = [
