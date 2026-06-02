@@ -1,0 +1,34 @@
+meta {
+  name: Create article
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/articles/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "title": "Titre article 1",
+    "content": "Contenu de l'article (Bruno test)"
+  }
+}
+
+script:post-response {
+  const data = res.getBody();
+
+  if (data.id) {
+    bru.setEnvVar("articleId", data.id);
+  }
+}

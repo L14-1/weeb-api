@@ -1,0 +1,26 @@
+meta {
+  name: Update article
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/api/articles/1/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+    "title": "Titre article modifié (bruno)",
+    "content": "Contenu modifié de l'article"
+  }
+}
