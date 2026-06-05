@@ -28,7 +28,7 @@ body:json {
 script:post-response {
   const data = res.getBody();
 
-  if (data.id) {
-    bru.setEnvVar("articleId", data.id);
+  if (data.uuid) {
+    bru.setEnvVar("articleId", data.uuid);
   }
 }
