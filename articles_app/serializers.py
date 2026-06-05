@@ -9,7 +9,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = (
-            'id',
+            'uuid',
             'title',
             'content',
             'owner',
@@ -17,7 +17,7 @@ class ArticleSerializer(serializers.ModelSerializer):
             'updated_at',
         )
         read_only_fields = (
-            'id',
+            'uuid',
             'owner',
             'created_at',
             'updated_at',

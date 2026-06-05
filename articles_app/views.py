@@ -11,6 +11,8 @@ class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     permission_classes = [IsOwnerOrAdminOrReadOnly]
     http_method_names = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options']
+    
+    lookup_field = 'uuid'
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

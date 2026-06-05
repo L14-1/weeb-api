@@ -5,10 +5,16 @@ from .models import Article
 class ArticleAdmin(admin.ModelAdmin):
     list_display = (
         'id',
+        'uuid',
         'title',
         'owner',
         'created_at',
         'updated_at',
+    )
+
+
+    readonly_fields = (
+        'uuid',
     )
 
     list_filter = (
