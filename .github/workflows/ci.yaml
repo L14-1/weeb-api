@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - dev
-      - feat/add-tests-and-ci
 
   pull_request:
     branches:
