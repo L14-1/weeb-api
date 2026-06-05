@@ -15,12 +15,14 @@ class ArticleSerializer(serializers.ModelSerializer):
             'owner',
             'created_at',
             'updated_at',
+            'deleted_at',
         )
         read_only_fields = (
             'uuid',
             'owner',
             'created_at',
             'updated_at',
+            'deleted_at',
         )
 
 
