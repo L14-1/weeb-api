@@ -2,8 +2,12 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from datetime import timedelta
+import sentry_sdk
 
 load_dotenv()
+
+if os.getenv('SENTRY_DSN'):
+    sentry_sdk.init(dsn=os.getenv('SENTRY_DSN'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
